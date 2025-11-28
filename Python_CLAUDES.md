@@ -75,3 +75,7 @@ use tsinghua source as our pypi source : `-i https://pypi.tuna.tsinghua.edu.cn/s
   - For releases, create and push a tag
 - **Impact assessment**: Evaluate how changes affect other codebase areas
 - **Documentation**: Keep documentation up-to-date for complex logic and features
+
+## Important Notes
+
+- IF you are not sure about my purpose, ask me before you execute
