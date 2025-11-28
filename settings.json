@@ -22,6 +22,8 @@
       "Bash(sphinx-build:*)",
       "Bash(mkdocs:*)",
       "Bash(pandoc:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
       "Bash(tree:*)"
     ],
     "deny": [
