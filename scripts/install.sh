@@ -66,21 +66,37 @@ install_commands() {
 install_settings() {
     print_info "Installing Claude Code settings..."
 
-    if [ -f "$SCRIPT_DIR/config/settings.local.json" ]; then
-        # Create .claude directory if it doesn't exist
-        mkdir -p "$CLAUDE_DIR"
+    # Create .claude directory if it doesn't exist
+    mkdir -p "$CLAUDE_DIR"
 
+    # Install main settings.json
+    if [ -f "$SCRIPT_DIR/settings.json" ]; then
         # Backup existing settings if they exist
-        if [ -f "$CLAUDE_DIR/settings.local.json" ]; then
-            cp "$CLAUDE_DIR/settings.local.json" "$BACKUP_DIR/settings.local.json.backup" 2>/dev/null || true
-            print_warning "Existing settings backed up"
+        if [ -f "$CLAUDE_DIR/settings.json" ]; then
+            cp "$CLAUDE_DIR/settings.json" "$BACKUP_DIR/settings.json.backup" 2>/dev/null || true
+            print_warning "Existing main settings backed up"
         fi
 
         # Copy new settings
-        cp "$SCRIPT_DIR/config/settings.local.json" "$CLAUDE_DIR/settings.local.json"
-        print_success "Settings installed to $CLAUDE_DIR/settings.local.json"
+        cp "$SCRIPT_DIR/settings.json" "$CLAUDE_DIR/settings.json"
+        print_success "Main settings installed to $CLAUDE_DIR/settings.json"
     else
-        print_warning "Settings file not found at config/settings.local.json"
+        print_warning "Main settings file not found at settings.json"
+    fi
+
+    # Install local settings file
+    if [ -f "$SCRIPT_DIR/config/settings.local.json" ]; then
+        # Backup existing local settings if they exist
+        if [ -f "$CLAUDE_DIR/settings.local.json" ]; then
+            cp "$CLAUDE_DIR/settings.local.json" "$BACKUP_DIR/settings.local.json.backup" 2>/dev/null || true
+            print_warning "Existing local settings backed up"
+        fi
+
+        # Copy new local settings
+        cp "$SCRIPT_DIR/config/settings.local.json" "$CLAUDE_DIR/settings.local.json"
+        print_success "Local settings installed to $CLAUDE_DIR/settings.local.json"
+    else
+        print_warning "Local settings file not found at config/settings.local.json"
     fi
 }
 
@@ -207,11 +223,18 @@ verify_installation() {
         print_success "Commands installed: $(ls -1 "$CLAUDE_DIR/commands" | wc -l) files"
     fi
 
-    # Check if settings file exists
-    if [ ! -f "$CLAUDE_DIR/settings.local.json" ]; then
-        print_warning "Settings file not installed"
+    # Check if main settings file exists
+    if [ ! -f "$CLAUDE_DIR/settings.json" ]; then
+        print_warning "Main settings file not installed"
     else
-        print_success "Settings file installed"
+        print_success "Main settings file installed"
+    fi
+
+    # Check if local settings file exists
+    if [ ! -f "$CLAUDE_DIR/settings.local.json" ]; then
+        print_warning "Local settings file not installed"
+    else
+        print_success "Local settings file installed"
     fi
 
     # Check if project info exists
@@ -252,7 +275,8 @@ main() {
         echo
         print_info "What was installed:"
         echo "  • Custom slash commands in $CLAUDE_DIR/commands/"
-        echo "  • Settings configuration in $CLAUDE_DIR/settings.local.json"
+        echo "  • Main settings configuration in $CLAUDE_DIR/settings.json"
+        echo "  • Local settings configuration in $CLAUDE_DIR/settings.local.json"
         echo "  • System notifier in $CLAUDE_DIR/claude-code-notifier.sh"
         echo "  • Project metadata in $CLAUDE_DIR/project_info.json"
         echo
