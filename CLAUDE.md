@@ -17,7 +17,7 @@ codes/
 │   └── settings.local.json    # Claude Code settings and permissions
 ├── docs/                      # Documentation
 │   ├── CLAUDE.md              # This file (main documentation)
-│   └── Python_CLAUDES.md      # Python development guidelines
+│   └── Python_CLAUDE.md       # Python development guidelines
 ├── scripts/                   # Installation and management scripts
 │   ├── install.sh             # Main installation script
 │   ├── install_depency.sh     # Dependency installation (MCP servers)
@@ -74,6 +74,7 @@ After installation, the following custom slash commands are available in Claude 
 
 - **`/commit`** - Create conventional commits with emoji support
 - **`/update_commands`** - Update command documentation
+- **`/python-guidelines`** - Load Python-specific development guidelines and best practices
 
 ## System Notifications
 
@@ -197,6 +198,37 @@ The `install.sh` script additionally installs:
 3. Add or modify commands
 4. Test with installation scripts
 5. Submit a pull request
+
+## Language-Specific Guidelines
+
+This repository supports language-specific development guidelines through a modular documentation system:
+
+### Current Languages
+- **Python**: Use `/python-guidelines` command to load Python development guidelines from `Python_CLAUDE.md`
+
+### Extending to Other Languages
+To add support for additional languages:
+
+1. **Create language-specific documentation:**
+   ```bash
+   # Example for C++
+   touch Cpp_CLAUDE.md
+   # Add C++-specific guidelines, tools, and best practices
+   ```
+
+2. **Create corresponding slash command:**
+   ```bash
+   # Example: commands/cpp_guidelines.md
+   # Command would be /cpp-guidelines
+   ```
+
+3. **Update this CLAUDE.md file** to reference the new language documentation
+
+### Automatic Language Detection
+Future enhancements could include:
+- File extension-based automatic guideline loading
+- MCP server integration for context-aware documentation access
+- Project-specific language configuration
 
 ## License
 
