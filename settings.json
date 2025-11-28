@@ -21,7 +21,8 @@
       "Bash(doxygen:*)",
       "Bash(sphinx-build:*)",
       "Bash(mkdocs:*)",
-      "Bash(pandoc:*)"
+      "Bash(pandoc:*)",
+      "Bash(tree:*)"
     ],
     "deny": [
       "Bash(curl:*)",
