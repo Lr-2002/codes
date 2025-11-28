@@ -1,0 +1,39 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run lint)",
+      "Bash(npm run test:*)",
+      "Bash(cd:*)",
+      "Bash(ls:*)",
+      "Bash(cmake:*)",
+      "Bash(make:*)",
+      "Bash(gcc:*)",
+      "Bash(g++:*)",
+      "Bash(gcc-*:*)",
+      "Bash(g++-*:*)",
+      "Bash(clang:*)",
+      "Bash(clang++:*)",
+      "Bash(mkdir:*)",
+      "Bash(rm:*)",
+      "Bash(cmake --build:*)",
+      "Bash(make clean:*)",
+      "Bash(make install:*)",
+      "Bash(doxygen:*)",
+      "Bash(sphinx-build:*)",
+      "Bash(mkdocs:*)",
+      "Bash(pandoc:*)"
+    ],
+    "deny": [
+      "Bash(curl:*)",
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)"
+    ]
+  },
+  "env": {
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "glm-4.5-air",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "glm-4.6",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "glm-4.6"
+  },
+  "alwaysThinkingEnabled": false
+}
