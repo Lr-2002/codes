@@ -163,4 +163,4 @@ Example of splitting commits:
 - Before committing, the command will review the diff to identify if multiple commits would be more appropriate
 - If suggesting multiple commits, it will help you stage and commit the changes separately
 - Always reviews the commit diff to ensure the message matches the changes
-- When you finish the Eng version of commit info, translate it to Chinese also and save both of them to the commit message
+- When you finish the Eng version of commit info $ENG_INFO, translate it to Chinese ($CHG_INFO) also and save both of them to the commit message (`git commit -m ($ENG_INFO + $CHG_INFO)`)
