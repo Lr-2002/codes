@@ -10,7 +10,7 @@
 ### Using pip
 
 use tsinghua source as our pypi source : `-i https://pypi.tuna.tsinghua.edu.cn/simple`
-
+If you fall to fail like version conflict: e.g. numpy have version conflict, keep the origin venv and create new conda env to skip this conflict
 - Install dependencies: `pip install -e .`
 - Install some dep: `pip install`
 - Install dev dependencies: `pip install -e ".[dev]"`
