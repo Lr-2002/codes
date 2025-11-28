@@ -9,8 +9,6 @@
       "Bash(make:*)",
       "Bash(gcc:*)",
       "Bash(g++:*)",
-      "Bash(gcc-*:*)",
-      "Bash(g++-*:*)",
       "Bash(clang:*)",
       "Bash(clang++:*)",
       "Bash(mkdir:*)",
@@ -29,6 +27,8 @@
       "WebFetch(domain:raw.githubusercontent.com)",
       "Bash(command:*)",
       "Bash(brew install:*)",
+      "Bash(cat:*)",
+      "Bash(pwd:*)",
       "Bash(tree:*)"
     ],
     "deny": [
