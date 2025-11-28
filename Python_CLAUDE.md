@@ -1,4 +1,4 @@
-# AWS MCP Server Development Guide
+# Python Development Guide
 
 ## Build & Test Commands
 
@@ -77,8 +77,6 @@ e.g. you need to test whether we could use `openarm_can`, just create tmp/test_o
 ## Development Workflow
 
 - **Version control**: Commit frequently with clear messages
-- **Versioning**: Use Git tags for versioning (e.g., `git tag -a 1.2.3 -m "Release 1.2.3"`)
-  - For releases, create and push a tag
 - **Impact assessment**: Evaluate how changes affect other codebase areas
 - **Documentation**: Keep documentation up-to-date for complex logic and features
 
