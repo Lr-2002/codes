@@ -24,6 +24,11 @@
       "Bash(pandoc:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
+      "mcp__serena__list_dir",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(command:*)",
+      "Bash(brew install:*)",
       "Bash(tree:*)"
     ],
     "deny": [
