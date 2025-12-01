@@ -46,24 +46,28 @@ bash install.sh
 ### Manual Install
 
 1. **Copy Commands:**
+
    ```bash
    mkdir -p ~/.claude/commands
    cp commands/*.md ~/.claude/commands/
    ```
 
 2. **Copy Settings:**
+
    ```bash
    mkdir -p ~/.claude
    cp config/settings.local.json ~/.claude/
    ```
 
 3. **Copy Notifier:**
+
    ```bash
    cp tools/claude-code-notifier.sh ~/.claude/
    chmod +x ~/.claude/claude-code-notifier.sh
    ```
 
 4. **Install Dependencies:**
+
    ```bash
    bash scripts/install_depency.sh
    ```
@@ -81,17 +85,20 @@ After installation, the following custom slash commands are available in Claude 
 The package includes a cross-platform system notifier that provides visual and audio alerts for Claude Code events:
 
 ### Supported Events
+
 - **SessionStart** 🚀 - When Claude Code starts a new session
 - **SessionEnd** ✅ - When Claude Code completes a session
 - **Stop** 🏁 - When Claude Code finishes a response
 - **Notification** - Custom notifications from Claude Code
 
 ### Platform Support
+
 - **macOS**: Uses `terminal-notifier` with sound alerts
 - **Linux**: Uses `notify-send` with visual notifications
 - **Windows**: Uses PowerShell toast notifications
 
 ### Dependencies (Auto-installed)
+
 - `jq` - JSON processing for all platforms
 - `terminal-notifier` - macOS notifications (via Homebrew)
 - `libnotify-bin` - Linux notifications (via apt/yum)
@@ -99,11 +106,13 @@ The package includes a cross-platform system notifier that provides visual and a
 ## Management Scripts
 
 ### Entry Point Scripts (Root Directory)
+
 - **`install.sh`** - Entry point for installation (calls scripts/install.sh)
 - **`update.sh`** - Entry point for updates (calls scripts/update.sh)
 - **`uninstall.sh`** - Entry point for uninstallation (calls scripts/uninstall.sh)
 
 ### Core Scripts (scripts/ Directory)
+
 - **`scripts/install.sh`** - Main installation script with all logic
 - **`scripts/update.sh`** - Update existing installation with latest changes
 - **`scripts/uninstall.sh`** - Remove installed components safely with backup
@@ -112,19 +121,24 @@ The package includes a cross-platform system notifier that provides visual and a
 ## Configuration
 
 ### Settings File
+
 The `settings.local.json` file includes:
+
 - Permissions for allowed bash commands (cmake, make, gcc, g++, etc.)
 - MCP server configurations
 - User-specific preferences
 - System notification hooks for Claude Code events
 
 ### Dependencies
+
 The `install_depency.sh` script installs:
+
 - `uv` package manager
 - `serena` MCP server for enhanced code analysis
 - MCP server configurations
 
 The `install.sh` script additionally installs:
+
 - System notifier script and platform dependencies
 - `jq` for JSON processing
 - `terminal-notifier` on macOS
@@ -162,6 +176,7 @@ The `install.sh` script additionally installs:
 - jq (auto-installed for notification processing)
 
 ### Optional for Notifications
+
 - `terminal-notifier` (macOS - auto-installed via Homebrew)
 - `libnotify-bin` (Linux - auto-installed via apt/yum)
 - PowerShell with Windows UI notifications (Windows - built-in)
@@ -169,21 +184,25 @@ The `install.sh` script additionally installs:
 ## Troubleshooting
 
 ### Installation Issues
+
 - Ensure Claude Code is properly installed
 - Check permissions on `~/.claude/` directory
 - Run scripts with `bash` not `sh`
 
 ### Command Not Working
+
 - Restart Claude Code after installation
 - Verify commands exist in `~/.claude/commands/`
 - Check settings file permissions
 
 ### Update Problems
+
 - Check for backup in `~/.claude/backup_*` directories
 - Manually restore from backup if needed
 - Re-run install script as last resort
 
 ### Notification Issues
+
 - **macOS**: Ensure `terminal-notifier` is installed (`brew install terminal-notifier`)
 - **Linux**: Ensure `libnotify-bin` is installed (`sudo apt install libnotify-bin`)
 - **All platforms**: Ensure `jq` is installed and the script is executable
@@ -204,12 +223,15 @@ The `install.sh` script additionally installs:
 This repository supports language-specific development guidelines through a modular documentation system:
 
 ### Current Languages
-- **Python**: Use `/python-guidelines` command to load Python development guidelines from `Python_CLAUDE.md`
+
+- **Python**: Default refer to  `~/.claude/Python_CLAUDE.md` for more knowledge
 
 ### Extending to Other Languages
+
 To add support for additional languages:
 
 1. **Create language-specific documentation:**
+
    ```bash
    # Example for C++
    touch Cpp_CLAUDE.md
@@ -217,6 +239,7 @@ To add support for additional languages:
    ```
 
 2. **Create corresponding slash command:**
+
    ```bash
    # Example: commands/cpp_guidelines.md
    # Command would be /cpp-guidelines
@@ -224,12 +247,7 @@ To add support for additional languages:
 
 3. **Update this CLAUDE.md file** to reference the new language documentation
 
-### Automatic Language Detection
-Future enhancements could include:
-- File extension-based automatic guideline loading
-- MCP server integration for context-aware documentation access
-- Project-specific language configuration
-
 ## License
 
 This project is designed to extend Claude Code functionality. Respect Claude Code's terms of service when creating custom commands and configurations.
+

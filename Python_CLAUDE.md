@@ -47,6 +47,56 @@ e.g. you need to test whether we could use `openarm_can`, just create tmp/test_o
 - **Function length**: Keep functions short (< 30 lines) and single-purpose
 - **PEP 8**: Follow PEP 8 style guide (enforced via `ruff`)
 
+### Writing Guidelines
+
+I would prefer writing like below
+
+```python arm_controller.py
+import *** 
+
+Class ArmController():
+  def __init__(self):
+
+  --- a lot of functions 
+
+if __name__ == '__main__':
+  --- Write the test here , do not create duplicated code. 
+
+```
+
+What's more, I would like to use code like
+
+```python
+def xx(a, b):
+# Process A and B directly like: 
+ c = a + b ** 2 
+return c
+```
+
+rather than
+
+```python
+def xx(a, b ) : 
+  try:
+    c = a + b ** 2 
+  except: 
+    c = 0 + 0 
+    raise xxxError(e)
+  finally:
+    xxx 
+```
+
+This is to duplicated and will slow down the code writing and debugging.
+
+```
+```
+
+```
+```
+
+```
+```
+
 ## Python Best Practices
 
 - **File handling**: Prefer `pathlib.Path` over `os.path`
@@ -82,4 +132,4 @@ e.g. you need to test whether we could use `openarm_can`, just create tmp/test_o
 
 ## Important Notes
 
-- IF you are not sure about my purpose, ask me before you execute
+- IMPORTANT: IF you are not sure about my purpose, ask me before you execute
